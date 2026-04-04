@@ -19,7 +19,7 @@ int main()
     numero = 30;
 
     printf("Novo valor de numero: %d\n", numero);
-    printf("Conteúdo apontado pelo ponteiro: %d\n\n", *p);
+    printf("Novo valor apontado pelo ponteiro: %d\n\n", *p);
 
     return 0;
 }
