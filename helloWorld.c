@@ -21,5 +21,7 @@ int main()
     printf("Novo valor de numero: %d\n", numero);
     printf("Novo valor apontado pelo ponteiro: %d\n\n", *p);
 
+    printf("Hoje está um \"ótimo\" dia para aprender C!\n");
+
     return 0;
 }
