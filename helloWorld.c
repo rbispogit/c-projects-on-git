@@ -1,27 +1,35 @@
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
     printf("Hello World!\n\n");
 
     int numero = 10;
-    int* p = &numero;
+    int *p, **ptrp;
+    char nome[] = "Bob";
+    char *ptrN;
 
-    printf("Valor da variável 'numero': %d\n", numero);
-    printf("Endereço da variável 'numero': %p\n", &numero);
-    printf("Valor apontado pelo ponteiro 'p': %d\n", *p);
-    printf("Conteúdo do Ponteiro: %p\n\n", p);
-    
-    *p = 20;
+    p = &numero;
+    ptrp = &p;
 
-    printf("Novo valor de 'numero', usando o ponteiro: %d\n\n", numero);
+    // Exibindo os endereços de variaveis.
+    printf("Endereço da váriavel 'numero': %x\n", &numero);
+    printf("Endereço da variável(ponteiro) '*p': %x\n", &p);
+    printf("Endereço da variável(ponteiro) '**ptrp': %x\n", &ptrp);
+    printf("Endereço do ponteiro 'ptrN': %x\n", &ptrN);
 
-    numero = 30;
+    // Exibindo os conteudos das variaveis.
+    printf("\nConteúdo da variável 'numero': %d\n", numero);
+    printf("Conteúdo da variável '*p': %x\n", p);
+    printf("Conteúdo da variável '**ptrp': %x\n", ptrp);
+    printf("Conteúdo da variável '*ptrN': %x\n", ptrN);
 
-    printf("Novo valor de numero: %d\n", numero);
-    printf("Novo valor apontado pelo ponteiro: %d\n\n", *p);
+    // Alterando valor da variavel 'numero', através do segundo ponteiro.
+    **ptrp = **ptrp + 20;
 
-    printf("Hoje está um \"ótimo\" dia para aprender C!\n");
+    // Exibindo novo valor da variável 'numero'.
+    printf("\nNovo valor da variável 'numero': %d\n", numero);
 
     return 0;
 }

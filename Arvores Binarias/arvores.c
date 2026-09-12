@@ -8,15 +8,15 @@
  
 struct No {
     char valor[50];
-    struct No* esquerda;
-    struct No* direita;
+    struct No *esquerda;
+    struct No *direita;
 };
 
 // Neste exemplo, vamos definir, de modo manual, nossa árvore. Então, não faremos a função inserir.
 // Desse modo, basta criamos uma função para alocar um novo nó na memória:
 
-struct No* criarNo(char* valor) {
-    struct No* novo = (struct No*) malloc(sizeof(struct No));
+struct No *criarNo(char *valor) {
+    struct No *novo = (struct No *) malloc(sizeof(struct No));
     strcpy(novo->valor, valor);
     novo->esquerda = NULL;
     novo->direita = NULL;
@@ -27,7 +27,7 @@ struct No* criarNo(char* valor) {
 // Depois que a árvore for construída, podemos percorrê-la. 
 // Aqui estão todos os percursos para ficar mais clara a visualização do resultado de cada um deles:
 
-void preOrdem(struct No* raiz) {
+void preOrdem(struct No *raiz) {
     if (raiz != NULL) {
         printf("%s ", raiz->valor);
         preOrdem(raiz->esquerda);
@@ -35,7 +35,7 @@ void preOrdem(struct No* raiz) {
     }
 }
 
-void emOrdem(struct No* raiz) {
+void emOrdem(struct No *raiz) {
     if (raiz != NULL) {
         emOrdem(raiz->esquerda);
         printf("%s ", raiz->valor);
@@ -43,7 +43,7 @@ void emOrdem(struct No* raiz) {
     }
 }
 
-void posOrdem(struct No* raiz) {
+void posOrdem(struct No *raiz) {
     if (raiz != NULL) {
         posOrdem(raiz->esquerda);
         posOrdem(raiz->direita);
@@ -54,7 +54,7 @@ void posOrdem(struct No* raiz) {
 // Liberação e utilização no main
 // É preciso liberar a memória ocupada pela árvore após o uso, evitando vazamentos:
 
-void liberar(struct No* raiz) {
+void liberar(struct No *raiz) {
     if (raiz != NULL) {
         liberar(raiz->esquerda);
         liberar(raiz->direita);
@@ -65,7 +65,7 @@ void liberar(struct No* raiz) {
 // Por fim, tudo isso se une em um programa completo. No main, vamos criar a árvore e inserir algumas strings:
 
 int main() {
-    struct No* raiz = criarNo("Hall de Entrada");
+    struct No *raiz = criarNo("Hall de Entrada");
     raiz->esquerda = criarNo("Sala de Estar");
     raiz->direita = criarNo("Biblioteca");
     raiz->esquerda->esquerda = criarNo("Quarto");
